@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>ShipBob Developer API Sample</title>
+    </head>
+    <body>
+        <h1>ShipBob Developer API Sample</h1>
+        {{#if channels}}
+            <h2>Authorized Channels</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each channels}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{name}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <form action="/logout" method="POST">
+                <button type="submit">Logout</button>
+            </form>
+        {{else}}
+            <h2>Authorization Required</h2>
+            <a href="{{authUrl}}">Login to ShipBob</a>
+        {{/if}}
+    </body>
+</html>
